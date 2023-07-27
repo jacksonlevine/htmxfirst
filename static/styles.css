@@ -1,12 +1,32 @@
 body {
-  background-color: aqua;
+  
+  background-color: white;
+  font-family:'Courier New', Courier, monospace;
 }
 .clickable-block {
   cursor:pointer;
-  transition: all 100ms;
-  background-color: aqua;
+  transition: all 200ms;
 }
 
 .clickable-block:hover {
-  background-color: aliceblue;
+  background-color: rgb(194, 237, 248);
+}
+
+.strip {
+  display: flex;
+  justify-content: center;
+}
+
+.strip > * {
+  padding: 0px 10px;
+}
+
+.greyedout {
+  color:rgb(136, 136, 136);
+  font-size:70%;
+}
+
+blockquote {
+  background-color: rgb(14, 4, 24);
+  color:white;
 }

@@ -1,10 +1,16 @@
 <div>
   {% for data in markdown_content %}
     <div
+      {% if not data.is_dir %}
       hx-get="{{ url_for('markdown_file', filename=data.filename) }}" 
       hx-target="#myTarget" 
       hx-swap="innerHTML"
-      class="clickable-block">
+      class="clickable-block"
+      {% endif %}
+      {% if data.is_dir %}
+      class="strip greyedout"
+      {% endif %}
+      >
 
         {{ data.content|safe }}
 

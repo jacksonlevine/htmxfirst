@@ -3,40 +3,62 @@
   <head>
     <script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pygments.css') }}">
     <style>
-      .strip > * {
-        padding: 0px 10px;
+      .stacktitle > * {
+        height:5%;
       }
+      body {
+            background-image: url("{{ url_for('static', filename='background.svg') }}");
+            background-repeat: no-repeat;
+            background-position: top center;
+        }
+
+      .topbanner {
+
+
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      
     </style>
   </head>
   <body>
-    <div class="strip" style="display:flex;justify-content:center">
-      <h1>Welcome to my Test Page!</h1>
+    <div class="topbanner">
+      <div class="strip">
+        <img src="{{ url_for('static', filename='logo.svg') }}" alt="">
+        <div class = "stacktitle">
+          <h1>Command</h1>
+          <h1>Center</h1>
+          <h1>One</h1>
+        </div>
+      </div>
+      <div class="strip">
+        <a
+          href="/home"
+          hx-get="/home" 
+          hx-target="#myTarget" 
+          hx-swap="innerHTML">
+          Home
+        </a>
+        <a
+          href="/projects"
+          hx-get="/projects" 
+          hx-target="#myTarget" 
+          hx-swap="innerHTML">
+          Projects
+        </a>
+        <a
+          href="/markdowns"
+          hx-get="/markdowns" 
+          hx-target="#myTarget" 
+          hx-swap="innerHTML">
+          Markdowns (Test)
+        </a>
+      </div>
     </div>
+    
 
-    <div class="strip" style="display:flex;justify-content:center">
-      <a
-        href="/home"
-        hx-get="/home" 
-        hx-target="#myTarget" 
-        hx-swap="innerHTML">
-        Home
-      </a>
-      <a
-        href="/projects"
-        hx-get="/projects" 
-        hx-target="#myTarget" 
-        hx-swap="innerHTML">
-        Projects
-      </a>
-      <a
-        href="/markdowns"
-        hx-get="/markdowns" 
-        hx-target="#myTarget" 
-        hx-swap="innerHTML">
-        Markdowns (Test)
-      </a>
-    </div>
+
 
     <div id="myTarget" hx-get="/{{ initial_view }}" hx-trigger="load" hx-swap="innerHTML">
       Loading...
