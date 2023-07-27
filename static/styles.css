@@ -1,7 +1,12 @@
+html {
+  display: flex;
+  justify-content: center;
+}
 body {
   
   background-color: white;
   font-family:'Courier New', Courier, monospace;
+  max-width: 1000px;
 }
 .clickable-block {
   cursor:pointer;
