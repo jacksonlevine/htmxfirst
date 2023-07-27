@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+      .strip > * {
+        padding: 0px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="strip" style="display:flex;justify-content:center">
+      <h1>Welcome to my Test Page!</h1>
+    </div>
+
+    <div class="strip" style="display:flex;justify-content:center">
+      <a
+        href="/home"
+        hx-get="/home" 
+        hx-target="#myTarget" 
+        hx-swap="innerHTML">
+        Home
+      </a>
+      <a
+        href="/projects"
+        hx-get="/projects" 
+        hx-target="#myTarget" 
+        hx-swap="innerHTML">
+        Projects
+      </a>
+      <a
+        href="/markdowns"
+        hx-get="/markdowns" 
+        hx-target="#myTarget" 
+        hx-swap="innerHTML">
+        Markdowns (Test)
+      </a>
+    </div>
+
+    <div id="myTarget" hx-get="/{{ initial_view }}" hx-trigger="load" hx-swap="innerHTML">
+      Loading...
+    </div>
+  </body>
+</html>

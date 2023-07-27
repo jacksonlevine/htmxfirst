@@ -1,0 +1,14 @@
+<div>
+  {% for data in markdown_content %}
+    <div
+      hx-get="{{ url_for('markdown_file', filename=data.filename) }}" 
+      hx-target="#myTarget" 
+      hx-swap="innerHTML"
+      class="clickable-block">
+
+        {{ data.content|safe }}
+
+
+    </div>
+    {% endfor %}
+</div>

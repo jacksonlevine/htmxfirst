@@ -1,0 +1,12 @@
+body {
+  background-color: aqua;
+}
+.clickable-block {
+  cursor:pointer;
+  transition: all 100ms;
+  background-color: aqua;
+}
+
+.clickable-block:hover {
+  background-color: aliceblue;
+}
