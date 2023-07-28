@@ -7,18 +7,10 @@ from datetime import datetime
 from markdown.extensions.codehilite import CodeHiliteExtension
 from bs4 import BeautifulSoup
 
-@app.route('/', defaults={'initial_view': 'home'})
+@app.route('/', defaults={'initial_view': 'markdowns'})
 @app.route('/<initial_view>')
 def index(initial_view):
     return render_template('index.html', initial_view=initial_view)
-
-@app.route('/home')
-def homecontent():
-    return "Resource content TESTER!!!! Home page"
-
-@app.route('/projects')
-def projectspage():
-    return "Projects page"
 
 @app.route('/markdowns')
 def markdowns():
